@@ -19,13 +19,9 @@ public final class ProductsContract {
         public static final String TABLE_NAME = "energy_usage";
         public static final String _ID = BaseColumns._ID;
         /**
-         * date format ddMMYYYY
+         * time in millis
          */
-        public static final String DATE = "date";
-        /**
-         * time format HH
-         */
-        public static final String TIME = "time";
+        public static final String DATE_TIME = "date_time";
         public static final String ENERGY_USAGE = "usage";
 
 

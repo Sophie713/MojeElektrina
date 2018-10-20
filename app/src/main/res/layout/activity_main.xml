@@ -10,27 +10,38 @@
     <TextView
         android:id="@+id/main_activity_top_info_text"
         style="@style/text_basic"
-        android:layout_width="0dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginStart="45dp"
         android:gravity="center"
         android:text="Gratulujeme, tvoje spotřeba je v limitu!"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_activity_settings_button" />
+
+    <TextView
+        style="@style/text_basic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:text="Ještě vám zbývá 12 Kč"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/main_activity_lightbulb_color"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_top_info_text" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/main_activity_top_info_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.62"
@@ -38,12 +49,13 @@
 
     <ImageView
         android:id="@+id/main_activity_lightbulb_color"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="50dp"
+        android:alpha="0.2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/main_activity_top_info_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.62"
@@ -52,17 +64,15 @@
     <TextView
         android:id="@+id/textView3"
         style="@style/text_basic"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="76dp"
+        android:layout_height="18dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:gravity="center_horizontal"
         android:text="Dneska platím"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
@@ -83,17 +93,15 @@
         app:layout_constraintVertical_bias="0.462"
         android:text="13 Kč" />
 
-    <TextView
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/main_activity_statistics_button"
         style="@style/text_basic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/rectangle_round_corners"
-        android:foreground="?attr/selectableItemBackground"
         android:gravity="center"
-        android:text="Moje Statistika"
+        android:src="@android:drawable/ic_menu_gallery"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

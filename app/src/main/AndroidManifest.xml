@@ -12,7 +12,7 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait">
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +25,8 @@
             android:authorities="com.qton.sophie.mojeelektrina"
             android:exported="false" />
 
-        <activity android:name=".GraphActivity"></activity>
+        <activity android:name=".GraphActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

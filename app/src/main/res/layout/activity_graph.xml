@@ -21,8 +21,8 @@
 
     <RadioButton
         android:id="@+id/radioGroup2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:text="Můj Graf"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -46,24 +46,28 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
+            android:id="@+id/graph_activity_den"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Den" />
 
         <RadioButton
+            android:id="@+id/graph_activity_tyden"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Týden" />
 
         <RadioButton
+            android:id="@+id/graph_activity_mesic"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Měsíc" />
 
         <RadioButton
+            android:id="@+id/graph_activity_rok"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

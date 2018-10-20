@@ -16,8 +16,7 @@ public class ProductsDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + ProductsContract.ProductEntry.TABLE_NAME + " (" +
                 ProductsContract.ProductEntry._ID + " INTEGER primary key autoincrement, " +
-                ProductsContract.ProductEntry.DATE + " string not null, " +
-                ProductsContract.ProductEntry.TIME + " string not null, " +
+                ProductsContract.ProductEntry.DATE_TIME + " INTEGER not null, " +
                 ProductsContract.ProductEntry.ENERGY_USAGE + " REAL default 0);";
         db.execSQL(CREATE_PRODUCTS_TABLE);
     }

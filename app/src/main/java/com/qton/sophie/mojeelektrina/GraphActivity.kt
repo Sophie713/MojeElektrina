@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
 import kotlinx.android.synthetic.main.activity_graph.*
@@ -21,19 +23,15 @@ class GraphActivity : AppCompatActivity() {
         setContentView(R.layout.activity_graph)
 
         transparentToolbar()
+        createGraph()
+        radioGroup.setOnCheckedChangeListener(object:RadioGroup.OnCheckedChangeListener {
+                override fun onCheckedChanged(group:RadioGroup, checkedId:Int) {
+                    // This will get the radiobutton that has changed in its check state
+                    createGraph()
+                }
+            })
 
-        for(i in 0..24){
-            var x = i.toDouble();
-            var y = Math.random()*1.6
-            y = String.format("%.2f", y).toDouble()
-            series.appendData(DataPoint(x, y), false, 50)
-        }
 
-        series.setAnimated(true)
-        series.thickness = 4
-        series.setColor(Color.GREEN);
-        series.setDrawDataPoints(true);
-        graph_activity_graph.addSeries(series)
     }
 
     private fun transparentToolbar() {
@@ -63,5 +61,37 @@ class GraphActivity : AppCompatActivity() {
             winParams.flags = winParams.flags and bits.inv()
         }
         win.setAttributes(winParams)
+    }
+    fun getChoice(): Int{
+        if(graph_activity_den.isChecked){
+            return 24
+        }
+        if(graph_activity_tyden.isChecked){
+            return 7
+        }
+        if(graph_activity_mesic.isChecked){
+            return 30
+        }
+        if(graph_activity_rok.isChecked){
+            return (Math.random()*10).toInt()
+        }
+        else return 12
+    }
+    fun createGraph(){
+        series = LineGraphSeries()
+        graph_activity_graph.removeAllSeries()
+        val last= getChoice()
+        for(i in 0..last){
+            var x = i.toDouble();
+            var y = Math.random()*1.6
+            y = String.format("%.2f", y).toDouble()
+
+            series.appendData(DataPoint(x, y), false, 50)
+        }
+        series.setAnimated(true)
+        series.thickness = 4
+        series.setColor(Color.GREEN);
+        series.setDrawDataPoints(true);
+        graph_activity_graph.addSeries(series)
     }
 }
