@@ -27,7 +27,7 @@ class GraphActivity : AppCompatActivity() {
         graph_activity_back.setOnClickListener {
             finish()
         }
-        //transparentToolbar()
+        transparentToolbar()
         createGraph()
         radioGroup.setOnCheckedChangeListener(object:RadioGroup.OnCheckedChangeListener {
                 override fun onCheckedChanged(group:RadioGroup, checkedId:Int) {

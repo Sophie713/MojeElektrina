@@ -16,24 +16,35 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
-        android:text="Gratulujeme, dneska jste obci pomohli zachránit 60kWh."
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_activity_settings_button" />
+
+    <ImageView
+        android:id="@+id/main_activity_kitty"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/main_activity_top_info_text"
+        app:layout_constraintStart_toStartOf="@+id/main_activity_top_info_text"
+        app:layout_constraintTop_toBottomOf="@+id/main_activity_top_info_text"
+        app:srcCompat="@drawable/kitty_bicycle" />
 
     <TextView
         android:id="@+id/textView2"
         style="@style/text_basic"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
-        android:text="Ještě vám zbývá 12 Kč"
+        android:text="Ještě vám zbývá 250 Kč do konce měsíce"
+        app:layout_constraintBottom_toTopOf="@+id/main_activity_statistics_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/main_activity_top_info_text"
-        app:layout_constraintTop_toBottomOf="@+id/main_activity_top_info_text" />
+        app:layout_constraintStart_toStartOf="@+id/main_activity_top_info_text" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -53,17 +64,16 @@
         android:layout_marginBottom="8dp"
         android:gravity="center_horizontal"
         android:text="Dneska platím"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView" />
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/main_activity_price"
+        app:layout_constraintEnd_toEndOf="@+id/main_activity_price"
+        app:layout_constraintStart_toStartOf="@+id/main_activity_price" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/main_activity_price"
         style="@style/text_basic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="8dp"
         android:layout_marginBottom="58dp"
         android:text="13 Kč"
@@ -84,7 +94,7 @@
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="20dp"
         android:gravity="center"
-        android:src="@android:drawable/ic_menu_gallery"
+        app:srcCompat="@drawable/ic_graph"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

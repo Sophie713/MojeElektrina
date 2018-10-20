@@ -14,11 +14,27 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    var isGood: Boolean = true
+    val sad: String = "Koťátko pláče, protože jednáš neúsporně se svou energií."
+    val happy: String = "Gratulujeme, dneska jste obci pomohli zachránit 60kWh. \nTo odpovídá energii, kterou byste vytvořili kdybyste jeli na kole 600 hodin."
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //transparentToolbar()
+        transparentToolbar()
+        main_activity_top_info_text.text = happy
+        main_activity_price.setOnClickListener {
+            if (isGood) {
+                main_activity_top_info_text.text = sad
+                main_activity_kitty.setImageResource(R.drawable.kitty_cry)
+                isGood = false
+            } else {
+                main_activity_top_info_text.text = happy
+                main_activity_kitty.setImageResource(R.drawable.kitty_bicycle)
+                isGood = true
+            }
+        }
 
         main_activity_statistics_button.setOnClickListener {
             val intent = Intent(this, GraphActivity::class.java)
@@ -27,29 +43,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun transparentToolbar() {
-        if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21)
-        {
+        if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {
             setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, true)
         }
-        if (Build.VERSION.SDK_INT >= 19)
-        {
+        if (Build.VERSION.SDK_INT >= 19) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
         }
-        if (Build.VERSION.SDK_INT >= 21)
-        {
+        if (Build.VERSION.SDK_INT >= 21) {
             setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false)
             getWindow().setStatusBarColor(Color.TRANSPARENT)
         }
     }
-    private fun setWindowFlag(activity: Activity, bits:Int, on:Boolean) {
+
+    private fun setWindowFlag(activity: Activity, bits: Int, on: Boolean) {
         val win = activity.getWindow()
         val winParams = win.getAttributes()
-        if (on)
-        {
+        if (on) {
             winParams.flags = winParams.flags or bits
-        }
-        else
-        {
+        } else {
             winParams.flags = winParams.flags and bits.inv()
         }
         win.setAttributes(winParams)
