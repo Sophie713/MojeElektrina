@@ -25,7 +25,11 @@
             android:authorities="com.qton.sophie.mojeelektrina"
             android:exported="false" />
 
-        <activity android:name=".GraphActivity"
+        <activity
+            android:name=".GraphActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".QuizActivity"
             android:screenOrientation="landscape"></activity>
     </application>
 

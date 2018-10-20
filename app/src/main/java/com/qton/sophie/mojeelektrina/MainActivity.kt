@@ -4,12 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.WindowManager
-import android.widget.ImageView
-import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -34,6 +32,11 @@ class MainActivity : AppCompatActivity() {
                 main_activity_kitty.setImageResource(R.drawable.kitty_bicycle)
                 isGood = true
             }
+        }
+
+        main_activity_info_button.setOnClickListener {
+            val intent = Intent(this, QuizActivity::class.java)
+            startActivity(intent)
         }
 
         main_activity_statistics_button.setOnClickListener {
