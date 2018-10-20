@@ -1,29 +1,39 @@
 package com.qton.sophie.mojeelektrina
 
 import android.app.Activity
-import android.content.Intent
+import android.content.res.Resources
 import android.graphics.Color
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
-import android.widget.ImageView
-import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_main.*
+import com.jjoe64.graphview.series.DataPoint
+import com.jjoe64.graphview.series.LineGraphSeries
+import kotlinx.android.synthetic.main.activity_graph.*
 
-class MainActivity : AppCompatActivity() {
+class GraphActivity : AppCompatActivity() {
+
+    var series: LineGraphSeries<DataPoint> = LineGraphSeries();
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_graph)
 
         transparentToolbar()
 
-        main_activity_statistics_button.setOnClickListener {
-            val intent = Intent(this, GraphActivity::class.java)
-            startActivity(intent)
+        for(i in 0..24){
+            var x = i.toDouble();
+            var y = Math.random()*1.6
+            y = String.format("%.2f", y).toDouble()
+            series.appendData(DataPoint(x, y), false, 50)
         }
+
+        series.setAnimated(true)
+        series.thickness = 4
+        series.setColor(Color.GREEN);
+        series.setDrawDataPoints(true);
+        graph_activity_graph.addSeries(series)
     }
 
     private fun transparentToolbar() {
