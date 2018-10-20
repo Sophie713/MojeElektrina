@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="green">#${getColor()}</color>
+    <color name="red">#f42222</color>
+    <color name="orange">#fa8919</color>
+    <color name="green_bcg">#4cce47</color>
+    <color name="red_bcg">#f42222</color>
+    <color name="orange_bcg">#fa8919</color>
+</resources>
