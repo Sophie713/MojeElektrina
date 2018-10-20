@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        transparentToolbar()
+        //transparentToolbar()
 
         main_activity_statistics_button.setOnClickListener {
             val intent = Intent(this, GraphActivity::class.java)

@@ -10,19 +10,24 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import com.jjoe64.graphview.ValueDependentColor
+import com.jjoe64.graphview.series.BarGraphSeries
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
 import kotlinx.android.synthetic.main.activity_graph.*
 
 class GraphActivity : AppCompatActivity() {
 
-    var series: LineGraphSeries<DataPoint> = LineGraphSeries();
+    var series: BarGraphSeries<DataPoint> = BarGraphSeries();
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_graph)
 
-        transparentToolbar()
+        graph_activity_back.setOnClickListener {
+            finish()
+        }
+        //transparentToolbar()
         createGraph()
         radioGroup.setOnCheckedChangeListener(object:RadioGroup.OnCheckedChangeListener {
                 override fun onCheckedChanged(group:RadioGroup, checkedId:Int) {
@@ -78,7 +83,7 @@ class GraphActivity : AppCompatActivity() {
         else return 12
     }
     fun createGraph(){
-        series = LineGraphSeries()
+        series = BarGraphSeries()
         graph_activity_graph.removeAllSeries()
         val last= getChoice()
         for(i in 0..last){
@@ -88,10 +93,7 @@ class GraphActivity : AppCompatActivity() {
 
             series.appendData(DataPoint(x, y), false, 50)
         }
-        series.setAnimated(true)
-        series.thickness = 4
-        series.setColor(Color.GREEN);
-        series.setDrawDataPoints(true);
+        series.dataWidth = 0.5
         graph_activity_graph.addSeries(series)
     }
 }
