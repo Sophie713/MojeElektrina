@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".QuizActivity">
 
 
     <TextView
+        style="@style/text_basic"
         android:id="@+id/RBquestion"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"
-        android:text="Very long question which is definitely longer than any other I might have in the rest of my quiz."
+        android:layout_marginEnd="24dp"
+        android:text="Vánoční stromek v Brně byl 18-ti metrový smrk ztepilý. Zdobilo ho celkem 220 kusů světelných řetězů o délce 18 metrů. Kolik myslíte, že byla cena elektřiny za celé adventní období?"
+        android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,15 +25,15 @@
 
     <com.qton.sophie.mojeelektrina.utils.ToggleButtonGroupTableLayout
         android:id="@+id/radioGroup"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RBquestion">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableRow>
 
@@ -38,12 +41,14 @@
                 android:id="@+id/RBanswer1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="3000 Kč"
                 android:layout_weight="1" />
 
             <RadioButton
                 android:id="@+id/RBanswer2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="3500 Kč"
                 android:layout_weight="1" />
         </TableRow>
 
@@ -53,12 +58,16 @@
                 android:id="@+id/RBanswer3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="4000 Kč"
                 android:layout_weight="1" />
 
             <RadioButton
                 android:id="@+id/RBanswer4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="4500 Kč"
                 android:layout_weight="1" />
         </TableRow>
 
