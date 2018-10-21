@@ -10,37 +10,64 @@ import android.view.WindowManager
 import android.widget.RadioGroup
 import com.jjoe64.graphview.series.BarGraphSeries
 import com.jjoe64.graphview.series.DataPoint
+import com.qton.sophie.mojeelektrina.utils.Constants.*
 import kotlinx.android.synthetic.main.activity_graph.*
 
 class GraphActivity : AppCompatActivity() {
 
-    var series: BarGraphSeries<DataPoint> = BarGraphSeries();
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_graph)
+        //setupGrapgs
+        if (graphDayMe.isEmpty) {
+            graphDayMe = createGraph(24)
+            graphDayTown = createGraph(24)
+            graphMonthMe = createGraph(30)
+            graphMonthTown = createGraph(30)
+            graphWeekMe = createGraph(7)
+            graphWeekTown = createGraph(7)
+            graphYearMe = createGraph(12)
+            graphYearTown = createGraph(12)
+        }
 
-        graph_activity_den.setChecked(true)
-        setupGraph()
+        graph_activity_den.isChecked = (true)
+        graph_activity_my_graph.isChecked = true
+        setupGraphs(graphDayMe, null, getChoice())
 
         graph_activity_back.setOnClickListener {
             finish()
         }
         transparentToolbar()
-        createGraph()
+
+        graph_activity_my_graph.setOnCheckedChangeListener { _, _ ->
+            updateGraphs()
+        }
+        graph_activity_average_graph.setOnCheckedChangeListener { _, _ ->
+            updateGraphs()
+        }
         radioGroup.setOnCheckedChangeListener(object : RadioGroup.OnCheckedChangeListener {
             override fun onCheckedChanged(group: RadioGroup, checkedId: Int) {
                 // This will get the radiobutton that has changed in its check state
-                createGraph()
+                updateGraphs()
+
             }
         })
     }
 
-    private fun setupGraph() {
+    private fun setupGraphs(series1: BarGraphSeries<DataPoint>?, series2: BarGraphSeries<DataPoint>?, lastNumber: Int) {
+        graph_activity_graph.removeAllSeries()
         val graph = graph_activity_graph
         graph.getViewport().setXAxisBoundsManual(true);
         graph.getViewport().setMinX(0.0);
-        graph.getViewport().setMaxX(1.0 * getChoice());
+        graph.getViewport().setMaxX(1.0 * lastNumber);
+        if (series1 != null) {
+            graph_activity_graph.addSeries(series1)
+        }
+        if (series2 != null) {
+            series2.color = R.color.green
+            graph_activity_graph.addSeries(series2)
+        }
     }
 
     private fun transparentToolbar() {
@@ -82,19 +109,85 @@ class GraphActivity : AppCompatActivity() {
         } else return 24
     }
 
-    fun createGraph() {
-        series = BarGraphSeries()
-        graph_activity_graph.removeAllSeries()
-        val last = getChoice()
-        for (i in 0..last) {
+    fun createGraph(lastNumber: Int): BarGraphSeries<DataPoint> {
+        var series: BarGraphSeries<DataPoint> = BarGraphSeries();
+        for (i in 0..lastNumber) {
             var x = i.toDouble();
             var y = Math.random() * 1.6
             y = String.format("%.2f", y).toDouble()
-
             series.appendData(DataPoint(x, y), false, 50)
         }
         series.dataWidth = 0.5
-        graph_activity_graph.addSeries(series)
-        setupGraph()
+        return series
+    }
+
+    fun updateGraphs() {
+        when (getChoice()) {
+            //den
+            24 -> {
+                //muj graf ano
+                if (graph_activity_my_graph.isChecked) {
+                    //prumer taky ano
+                    if (graph_activity_average_graph.isChecked) {
+                        setupGraphs(graphDayMe, graphDayTown, 24)
+                    } else {
+                        //prumer ne
+                        setupGraphs(graphDayMe, null, 24)
+                    }
+                } else if (graph_activity_average_graph.isChecked) {
+                    setupGraphs(null, graphDayTown, 24)
+                } else {
+                    setupGraphs(null, null, 24)
+                }
+            }
+            7 -> {
+                //muj graf ano
+                if (graph_activity_my_graph.isChecked) {
+                    //prumer taky ano
+                    if (graph_activity_average_graph.isChecked) {
+                        setupGraphs(graphWeekMe, graphWeekTown, 7)
+                    } else {
+                        //prumer ne
+                        setupGraphs(graphWeekMe, null, 7)
+                    }
+                } else if (graph_activity_average_graph.isChecked) {
+                    setupGraphs(null, graphWeekTown, 7)
+                } else {
+                    setupGraphs(null, null, 7)
+                }
+            }
+            12 -> {
+                //muj graf ano
+                if (graph_activity_my_graph.isChecked) {
+                    //prumer taky ano
+                    if (graph_activity_average_graph.isChecked) {
+                        setupGraphs(graphYearMe, graphYearTown, 24)
+                    } else {
+                        //prumer ne
+                        setupGraphs(graphYearMe, null, 24)
+                    }
+                } else if (graph_activity_average_graph.isChecked) {
+                    setupGraphs(null, graphYearTown, 24)
+                } else {
+                    setupGraphs(null, null, 24)
+                }
+            }
+            30 -> {
+                //muj graf ano
+                if (graph_activity_my_graph.isChecked) {
+                    //prumer taky ano
+                    if (graph_activity_average_graph.isChecked) {
+                        setupGraphs(graphMonthMe, graphMonthTown, 24)
+                    } else {
+                        //prumer ne
+                        setupGraphs(graphMonthMe, null, 24)
+                    }
+                } else if (graph_activity_average_graph.isChecked) {
+                    setupGraphs(null, graphMonthTown, 24)
+                } else {
+                    setupGraphs(null, null, 24)
+                }
+            }
+        }
     }
 }

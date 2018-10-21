@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".QuizActivity">
+
+
+    <TextView
+        android:id="@+id/RBquestion"
+        style="@style/text_basic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
+        android:text="Vánoční stromek v Brně byl 18-ti metrový smrk ztepilý. Zdobilo ho celkem 220 kusů světelných řetězů o délce 18 metrů. Kolik myslíte, že byla cena elektřiny za celé adventní období?"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.qton.sophie.mojeelektrina.utils.ToggleButtonGroupTableLayout
+        android:id="@+id/radioGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/submit_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow>
+
+            <RadioButton
+                android:id="@+id/RBanswer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3000 Kč" />
+
+            <RadioButton
+                android:id="@+id/RBanswer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3500 Kč" />
+        </TableRow>
+
+        <TableRow>
+
+            <RadioButton
+                android:id="@+id/RBanswer3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:text="4000 Kč" />
+
+            <RadioButton
+                android:id="@+id/RBanswer4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:text="4500 Kč" />
+        </TableRow>
+
+    </com.qton.sophie.mojeelektrina.utils.ToggleButtonGroupTableLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/submit_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:src="@android:drawable/checkbox_on_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

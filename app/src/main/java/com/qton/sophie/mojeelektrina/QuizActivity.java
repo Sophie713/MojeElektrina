@@ -139,7 +139,7 @@ public class QuizActivity extends AppCompatActivity {
                 button3.setText("dvě pouliční lampy během dvou let");
                 button4.setText("dvě pouliční lampy během deseti let");
                 //Toast message
-                toast("1 Kč");
+                toast("11 Kč");
                 break;
             case 8:
                 //update score
@@ -197,7 +197,7 @@ public class QuizActivity extends AppCompatActivity {
                     score++;
                 }
                 Intent intent = new Intent(this, MainActivity.class);
-                toast("5,5 milionu pouličních lamp. Vaše skóre je " + score);
+                toast("5,5 milionu pouličních lamp. \nVaše skóre je " + score);
                 startActivity(intent);
 
         }
@@ -216,7 +216,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void findViews() {
-        question = findViewById(R.id.main_activity_top_info_text);
+        question = findViewById(R.id.RBquestion);
         button1 = findViewById(R.id.RBanswer1);
         button2 = findViewById(R.id.RBanswer2);
         button3 = findViewById(R.id.RBanswer3);
