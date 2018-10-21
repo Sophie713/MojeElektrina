@@ -8,7 +8,7 @@
 
 
     <ImageView
-        android:id="@+id/graph_activity_back"
+        android:id="@+id/settings_activity_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
@@ -16,15 +16,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back_arrow" />
 
-    <android.support.design.widget.TextInputEditText
+    <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputEditText"
-        style="@style/text_basic"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Kolik platím zálohy za elektřinu?"
-        android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@+id/graph_activity_back" />
+        android:hint="Kolik platím měsíčně na zálohách za elektřinu?"
+        app:layout_constraintTop_toBottomOf="@+id/settings_activity_back">
+
+        <EditText
+            android:id="@+id/textBasic"
+            style="@style/text_basic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Kolik platím měsíčně na zálohách za elektřinu?"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -47,12 +54,14 @@
     <TextView
         style="@style/text_basic"
         android:layout_width="0dp"
-        android:layout_height="17dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:text="Nastavení"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/graph_activity_back"
+        app:layout_constraintStart_toEndOf="@+id/settings_activity_back"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

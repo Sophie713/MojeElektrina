@@ -43,6 +43,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, GraphActivity::class.java)
             startActivity(intent)
         }
+
+        main_activity_settings_button.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun transparentToolbar() {

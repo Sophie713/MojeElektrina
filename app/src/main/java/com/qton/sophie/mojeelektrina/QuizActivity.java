@@ -223,4 +223,6 @@ public class QuizActivity extends AppCompatActivity {
         button4 = findViewById(R.id.RBanswer4);
         submit = findViewById(R.id.submit_btn);
     }
+
+
 }
