@@ -30,7 +30,8 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".QuizActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>
