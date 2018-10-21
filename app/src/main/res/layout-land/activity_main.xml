@@ -74,8 +74,7 @@
         style="@style/text_basic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="58dp"
+        android:layout_marginBottom="88dp"
         android:text="13 Kč"
         android:textColor="@android:color/black"
         android:textSize="25sp"
@@ -83,8 +82,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.541"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="@+id/imageView" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/main_activity_statistics_button"

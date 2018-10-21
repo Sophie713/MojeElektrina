@@ -114,7 +114,6 @@ class GraphActivity : AppCompatActivity() {
         for (i in 0..lastNumber) {
             var x = i.toDouble();
             var y = Math.random() * 1.6
-            y = String.format("%.2f", y).toDouble()
             series.appendData(DataPoint(x, y), false, 50)
         }
         series.dataWidth = 0.5
